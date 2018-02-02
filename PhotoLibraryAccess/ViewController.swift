@@ -52,8 +52,9 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
 
 extension ViewController: UIImagePickerControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let _ = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            print("didFinishPickingMediaWithInfo")
+        // iOS11では、PHPhotoLibrary.requestAuthorization が deniedででも読み出せる
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            self.imageView.image = image
         }
         self.dismiss(animated: true, completion: nil)
     }

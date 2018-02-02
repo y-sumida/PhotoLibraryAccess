@@ -24,7 +24,7 @@
                                     <action selector="tapSelectPhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="u4e-ec-xYh"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3W9-Zv-fzL">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3W9-Zv-fzL">
                                 <rect key="frame" x="16" y="134" width="343" height="513"/>
                             </imageView>
                         </subviews>

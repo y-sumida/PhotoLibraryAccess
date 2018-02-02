@@ -18,20 +18,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a9H-xx-sTE">
-                                <rect key="frame" x="143" y="185" width="88" height="30"/>
+                                <rect key="frame" x="143" y="84" width="88" height="30"/>
                                 <state key="normal" title="Select Photo"/>
                                 <connections>
                                     <action selector="tapSelectPhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="u4e-ec-xYh"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3W9-Zv-fzL">
+                                <rect key="frame" x="16" y="134" width="343" height="513"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="a9H-xx-sTE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="165" id="HHJ-cJ-tzU"/>
+                            <constraint firstItem="3W9-Zv-fzL" firstAttribute="top" secondItem="a9H-xx-sTE" secondAttribute="bottom" constant="20" id="12e-uI-by9"/>
+                            <constraint firstItem="a9H-xx-sTE" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="64" id="HHJ-cJ-tzU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3W9-Zv-fzL" secondAttribute="trailing" constant="16" id="Lfw-1r-W4G"/>
+                            <constraint firstItem="3W9-Zv-fzL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="ezX-dd-MJE"/>
                             <constraint firstItem="a9H-xx-sTE" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="pw2-KZ-F0J"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="3W9-Zv-fzL" secondAttribute="bottom" constant="20" id="z5G-yD-RbC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="imageView" destination="3W9-Zv-fzL" id="GMD-B5-VIx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

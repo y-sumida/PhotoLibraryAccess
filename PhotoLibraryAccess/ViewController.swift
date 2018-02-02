@@ -10,6 +10,7 @@ import UIKit
 import Photos
 
 class ViewController: UIViewController, UINavigationControllerDelegate {
+    @IBOutlet weak var imageView: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +22,15 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
             case .notDetermined: print("NotDetermined")
             case .restricted: print("Restricted")
             }
+        }
+
+        // authorized なら自由に読み出せる
+        let options = PHFetchOptions()
+        let result = PHAsset.fetchAssets(with: .image, options: options)
+        if let asset = result.firstObject {
+            PHImageManager.default().requestImage(for: asset, targetSize: CGSize(width: asset.pixelWidth, height: asset.pixelHeight), contentMode: .aspectFill, options: nil, resultHandler: {[unowned self] image, options in
+                self.imageView.image = image
+            })
         }
     }
 

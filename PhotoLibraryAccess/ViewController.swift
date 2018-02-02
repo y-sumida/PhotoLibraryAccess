@@ -7,12 +7,21 @@
 //
 
 import UIKit
+import Photos
 
 class ViewController: UIViewController, UINavigationControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        // PHPhotoLibraryを使う際に、NSPhotoLibraryUsageDescription を設定してないとクラッシュ
+        PHPhotoLibrary.requestAuthorization { status in
+            switch status {
+            case .authorized: print("authorized")
+            case .denied: print("denied")
+            case .notDetermined: print("NotDetermined")
+            case .restricted: print("Restricted")
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -21,6 +30,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate {
     }
 
     @IBAction func tapSelectPhoto(_ sender: Any) {
+        // iOS11では、UIImagePickerControllerで写真にアクセスするだけならユーザーのアクセス確認は出ない
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
             let picker = UIImagePickerController()
             picker.delegate = self
